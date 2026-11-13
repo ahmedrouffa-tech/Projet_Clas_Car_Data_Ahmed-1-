@@ -1,0 +1,13 @@
+import sklearn
+
+# Déterminer la version actuelle de scikit-learn dans Colab pour figer la même version au déploiement
+colab_sklearn_version = sklearn.__version__
+
+with open('requirements.txt', 'w') as f:
+    f.write('streamlit>=1.0.0\n')
+    f.write('pandas\n')
+    f.write('numpy\n')
+    f.write(f'scikit-learn=={colab_sklearn_version}\n')
+    f.write('joblib\n')
+
+print(f"✅ Fichier requirements.txt créé avec succès (Scikit-Learn figé à la version {colab_sklearn_version})")
